@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Debug styles to see if dark mode is working */
+.debug-theme {
+  @apply bg-red-500 dark:bg-blue-500;
+}
+
+body {
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Full screen with proper safe area support */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Ensure root layout uses full screen */
+#__next {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Hide scrollbars for a cleaner native app look */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbars on webkit browsers (iOS Safari, Chrome) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbars on Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbars on IE/Edge */
+* {
+  -ms-overflow-style: none;
+}
+
+/* For specific containers that need scrolling */
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Capacitor-specific optimizations */
+html {
+  /* Prevent zoom on input focus */
+  -webkit-text-size-adjust: 100%;
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Ensure proper scrolling in Capacitor WebView */
+body {
+  /* Prevent bounce scrolling on iOS */
+  overscroll-behavior: none;
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars on all scrollable elements */
+div,
+section,
+main,
+aside,
+article {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+div::-webkit-scrollbar,
+section::-webkit-scrollbar,
+main::-webkit-scrollbar,
+aside::-webkit-scrollbar,
+article::-webkit-scrollbar {
+  display: none;
+}

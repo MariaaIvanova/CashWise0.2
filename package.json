@@ -1,0 +1,60 @@
+{
+  "name": "cashwise",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "build:android": "./build-android.sh",
+    "build:android:debug": "npx cap build android --keystorepath $(pwd)/android/app/debug.keystore --keystorepass android --keystorealias androiddebugkey --keystorealiaspass android",
+    "build:android:apk": "npx cap build android --keystorepath $(pwd)/android/app/debug.keystore --keystorepass android --keystorealias androiddebugkey --keystorealiaspass android --androidreleasetype APK",
+    "build:android:aab": "npx cap build android --keystorepath $(pwd)/android/app/debug.keystore --keystorepass android --keystorealias androiddebugkey --keystorealiaspass android --androidreleasetype AAB"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.2",
+    "@capacitor/cli": "^7.4.2",
+    "@capacitor/core": "^7.4.2",
+    "@capacitor/ios": "^7.4.2",
+    "@capacitor/status-bar": "^7.0.1",
+    "@stagewise-plugins/react": "^0.6.0",
+    "@stagewise/toolbar-next": "^0.6.0",
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.50.5",
+    "@vidstack/react": "^1.12.13",
+    "browser-image-compression": "^2.0.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.5",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-easy-crop": "^5.5.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.7",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19",
+    "eslint": "^9.31.0",
+    "eslint-config-next": "15.3.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
